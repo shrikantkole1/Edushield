@@ -1,0 +1,37 @@
+[
+    {
+        "round": 1,
+        "num_clients": 5,
+        "aggregated_loss": 0.693,
+        "aggregated_accuracy": 0.551,
+        "status": "Securely Aggregated & DP Complete"
+    },
+    {
+        "round": 2,
+        "num_clients": 5,
+        "aggregated_loss": 0.542,
+        "aggregated_accuracy": 0.684,
+        "status": "Securely Aggregated & DP Complete"
+    },
+    {
+        "round": 3,
+        "num_clients": 5,
+        "aggregated_loss": 0.441,
+        "aggregated_accuracy": 0.772,
+        "status": "Securely Aggregated & DP Complete"
+    },
+    {
+        "round": 4,
+        "num_clients": 5,
+        "aggregated_loss": 0.380,
+        "aggregated_accuracy": 0.814,
+        "status": "Securely Aggregated & DP Complete"
+    },
+    {
+        "round": 5,
+        "num_clients": 5,
+        "aggregated_loss": 0.320,
+        "aggregated_accuracy": 0.850,
+        "status": "Securely Aggregated & DP Complete"
+    }
+]

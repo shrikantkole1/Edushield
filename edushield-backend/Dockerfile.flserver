@@ -1,0 +1,18 @@
+# Use the official Python image
+FROM python:3.9-slim
+
+# Set working directory
+WORKDIR /usr/src/app
+
+# Install dependencies
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy backend source code
+COPY . .
+
+# Expose Flower server port
+EXPOSE 8080
+
+# Run the Flower Federated Server
+CMD ["python", "-m", "app.federated.fl_server"]

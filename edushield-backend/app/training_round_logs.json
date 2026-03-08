@@ -1,0 +1,9 @@
+[
+    {
+        "round": 1,
+        "num_clients": 2,
+        "aggregated_loss": 6.935407777627308,
+        "aggregated_accuracy": 0.85,
+        "status": "Securely Aggregated & DP Complete"
+    }
+]

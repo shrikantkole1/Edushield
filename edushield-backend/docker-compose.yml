@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  fastapi_backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.fastapi
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=production-secret-key
+      - FL_SERVER_ADDRESS=fl_server:8080
+    networks:
+      - edushield_network
+    depends_on:
+      - fl_server
+
+  fl_server:
+    build:
+      context: .
+      dockerfile: Dockerfile.flserver
+    ports:
+      - "8080:8080"
+    networks:
+      - edushield_network
+
+  # Represents Node A simulated in Docker
+  fl_client_node_a:
+    build:
+      context: .
+      dockerfile: Dockerfile.flserver # Reuses context
+    command: python -m app.federated.fl_client
+    networks:
+      - edushield_network
+    environment:
+      - FL_SERVER_ADDRESS=fl_server:8080
+    depends_on:
+      - fl_server
+
+  # Represents Node B simulated in Docker
+  fl_client_node_b:
+    build:
+      context: .
+      dockerfile: Dockerfile.flserver
+    command: python -m app.federated.fl_client
+    networks:
+      - edushield_network
+    environment:
+      - FL_SERVER_ADDRESS=fl_server:8080
+    depends_on:
+      - fl_server
+
+networks:
+  edushield_network:
+    driver: bridge
